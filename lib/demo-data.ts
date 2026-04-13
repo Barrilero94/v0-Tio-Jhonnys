@@ -84,7 +84,7 @@ export const demoOrders: Order[] = [
     platform: "delivery",
     customerName: "Diego R.",
     items: [
-      { name: "Hamburguesa Premium", quantity: 1 },
+      { name: "Johnny's Clasica", quantity: 1 },
       { name: "Papas con Cheddar", quantity: 1 },
       { name: "Malteada Chocolate", quantity: 1 },
     ],
@@ -98,7 +98,7 @@ export const demoOrders: Order[] = [
     platform: "delivery",
     customerName: "Patricia V.",
     items: [
-      { name: "Hamburguesa Crispy", quantity: 2, notes: "Extra salsa" },
+      { name: "Johnny's Crispy", quantity: 2, notes: "Extra salsa" },
       { name: "Nuggets x12", quantity: 1 },
     ],
     total: 4800,
@@ -111,9 +111,10 @@ export const demoOrders: Order[] = [
     platform: "delivery",
     customerName: "Fernando B.",
     items: [
-      { name: "Combo Kids", quantity: 2 },
+      { name: "Combo Familiar Tio Johnny's", quantity: 1, notes: "4 hamburguesas" },
+      { name: "Papas Familiares", quantity: 2 },
     ],
-    total: 3600,
+    total: 9600,
     status: "ready",
     createdAt: new Date(Date.now() - 40 * 60 * 1000),
   },
@@ -122,11 +123,38 @@ export const demoOrders: Order[] = [
     platform: "delivery",
     customerName: "Sofia T.",
     items: [
-      { name: "Hamburguesa Bacon", quantity: 1 },
+      { name: "Johnny's Bacon", quantity: 1 },
     ],
     total: 2800,
     status: "completed",
     createdAt: new Date(Date.now() - 55 * 60 * 1000),
+  },
+  {
+    id: "DL-005",
+    platform: "delivery",
+    customerName: "Ramiro C.",
+    items: [
+      { name: "Johnny's Doble", quantity: 3 },
+      { name: "Aros de Cebolla", quantity: 2 },
+      { name: "Coca-Cola 1.5L", quantity: 1 },
+    ],
+    total: 7400,
+    status: "pending",
+    createdAt: new Date(Date.now() - 2 * 60 * 1000),
+    estimatedTime: 40,
+  },
+  {
+    id: "DL-006",
+    platform: "delivery",
+    customerName: "Camila A.",
+    items: [
+      { name: "Johnny's BBQ", quantity: 2, notes: "Sin cebolla" },
+      { name: "Papas Fritas Grandes", quantity: 2 },
+    ],
+    total: 5200,
+    status: "preparing",
+    createdAt: new Date(Date.now() - 25 * 60 * 1000),
+    estimatedTime: 18,
   },
   // Take Away Orders (retiro en local)
   {
@@ -134,7 +162,7 @@ export const demoOrders: Order[] = [
     platform: "takeaway",
     customerName: "Martín H.",
     items: [
-      { name: "Hamburguesa Doble Bacon", quantity: 2 },
+      { name: "Johnny's Doble Bacon", quantity: 2 },
       { name: "Papas Fritas", quantity: 2 },
       { name: "Coca-Cola 500ml", quantity: 2 },
     ],
@@ -148,7 +176,7 @@ export const demoOrders: Order[] = [
     platform: "takeaway",
     customerName: "Lucía P.",
     items: [
-      { name: "Hamburguesa Clásica", quantity: 1 },
+      { name: "Johnny's Clasica", quantity: 1 },
       { name: "Aros de Cebolla", quantity: 1, notes: "Extra crocantes" },
     ],
     total: 3100,
@@ -161,7 +189,7 @@ export const demoOrders: Order[] = [
     platform: "takeaway",
     customerName: "Nicolás F.",
     items: [
-      { name: "Combo Triple", quantity: 1 },
+      { name: "Johnny's Triple", quantity: 1 },
       { name: "Malteada Frutilla", quantity: 1 },
     ],
     total: 4200,
@@ -173,10 +201,49 @@ export const demoOrders: Order[] = [
     platform: "takeaway",
     customerName: "Valentina R.",
     items: [
-      { name: "Hamburguesa Veggie", quantity: 2 },
+      { name: "Johnny's Veggie", quantity: 2 },
     ],
     total: 4400,
     status: "completed",
     createdAt: new Date(Date.now() - 50 * 60 * 1000),
+  },
+  {
+    id: "TA-005",
+    platform: "takeaway",
+    customerName: "Gonzalo M.",
+    items: [
+      { name: "Johnny's Premium", quantity: 1 },
+      { name: "Papas con Cheddar y Bacon", quantity: 1 },
+      { name: "Brownie", quantity: 1 },
+    ],
+    total: 4900,
+    status: "pending",
+    createdAt: new Date(Date.now() - 5 * 60 * 1000),
+    estimatedTime: 12,
+  },
+  {
+    id: "TA-006",
+    platform: "takeaway",
+    customerName: "Agustina L.",
+    items: [
+      { name: "Combo Kids Johnny's", quantity: 3, notes: "Con juguete" },
+    ],
+    total: 5100,
+    status: "preparing",
+    createdAt: new Date(Date.now() - 15 * 60 * 1000),
+    estimatedTime: 8,
+  },
+  {
+    id: "TA-007",
+    platform: "takeaway",
+    customerName: "Ezequiel D.",
+    items: [
+      { name: "Johnny's Monster", quantity: 1, notes: "Triple carne" },
+      { name: "Papas Familiares", quantity: 1 },
+      { name: "Cerveza Artesanal", quantity: 2 },
+    ],
+    total: 6200,
+    status: "ready",
+    createdAt: new Date(Date.now() - 20 * 60 * 1000),
   },
 ]
