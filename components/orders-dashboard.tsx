@@ -1,7 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Utensils, Bell, RefreshCw } from "lucide-react"
+import { Bell, RefreshCw } from "lucide-react"
+import Image from "next/image"
 import { PlatformColumn } from "./platform-column"
 import { Button } from "@/components/ui/button"
 import { demoOrders } from "@/lib/demo-data"
@@ -9,10 +10,11 @@ import type { Order, OrderStatus, Platform } from "@/lib/types"
 
 export function OrdersDashboard() {
   const [orders, setOrders] = useState<Order[]>(demoOrders)
-  const [currentTime, setCurrentTime] = useState(new Date())
+  const [currentTime, setCurrentTime] = useState<Date | null>(null)
 
-  // Update clock every minute
+  // Initialize and update clock only on client
   useEffect(() => {
+    setCurrentTime(new Date())
     const timer = setInterval(() => {
       setCurrentTime(new Date())
     }, 60000)
@@ -44,14 +46,20 @@ export function OrdersDashboard() {
     <div className="flex h-screen flex-col bg-background">
       {/* Header */}
       <header className="flex items-center justify-between border-b border-border px-6 py-4">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-            <Utensils className="h-5 w-5 text-primary-foreground" />
+        <div className="flex items-center gap-4">
+          <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-primary">
+            <Image
+              src="/images/tio-johnnys-logo.jpeg"
+              alt="Tio Johnny's Logo"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
           <div>
-            <h1 className="text-xl font-bold">Tio Johnny&apos;s</h1>
+            <h1 className="text-xl font-bold text-primary">Tio Johnny&apos;s</h1>
             <p className="text-sm text-muted-foreground">
-              Centro de Pedidos
+              Premium Burgers - Centro de Pedidos
             </p>
           </div>
         </div>
@@ -74,17 +82,17 @@ export function OrdersDashboard() {
           {/* Clock */}
           <div className="text-right">
             <p className="text-lg font-mono font-bold">
-              {currentTime.toLocaleTimeString("es-AR", {
+              {currentTime?.toLocaleTimeString("es-AR", {
                 hour: "2-digit",
                 minute: "2-digit",
-              })}
+              }) ?? "--:--"}
             </p>
             <p className="text-xs text-muted-foreground">
-              {currentTime.toLocaleDateString("es-AR", {
+              {currentTime?.toLocaleDateString("es-AR", {
                 weekday: "short",
                 day: "numeric",
                 month: "short",
-              })}
+              }) ?? "---"}
             </p>
           </div>
 
