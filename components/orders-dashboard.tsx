@@ -47,9 +47,9 @@ export function OrdersDashboard() {
       {/* Header */}
       <header className="flex items-center justify-between border-b border-border px-6 py-4">
         <div className="flex items-center gap-4">
-          <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-primary">
+          <div className="relative h-12 w-12 overflow-hidden rounded-full">
             <Image
-              src="/images/tio-johnnys-logo.jpeg"
+              src="/images/tio-johnnys-logo.jpg"
               alt="Tio Johnny's Logo"
               fill
               className="object-cover"
