@@ -63,18 +63,18 @@ export function PlatformColumn({
 
   return (
     <div className="flex flex-col h-full">
-      {/* Header */}
+      {/* Header - Hidden on mobile since we have tabs */}
       <div
         className={cn(
-          "sticky top-0 z-10 rounded-t-lg border-b-2 px-4 py-3",
+          "sticky top-0 z-10 rounded-t-lg border-b-2 px-3 py-2 md:px-4 md:py-3 hidden md:block",
           config.bgClass,
           config.borderClass
         )}
       >
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-bold">{config.name}</h2>
+          <h2 className="text-base md:text-lg font-bold">{config.name}</h2>
           <div className="flex items-center gap-2">
-            <span className="rounded-full bg-background px-2 py-0.5 text-sm font-semibold">
+            <span className="rounded-full bg-background px-2 py-0.5 text-xs md:text-sm font-semibold">
               {activeOrders.length} activos
             </span>
           </div>
@@ -82,7 +82,7 @@ export function PlatformColumn({
       </div>
 
       {/* Orders List */}
-      <div className="flex-1 overflow-y-auto p-3 space-y-3">
+      <div className="flex-1 overflow-y-auto p-2 md:p-3 space-y-2 md:space-y-3">
         {activeOrders.length === 0 && completedOrders.length === 0 ? (
           <div className="flex h-32 items-center justify-center text-muted-foreground">
             Sin pedidos
