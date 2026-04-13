@@ -41,7 +41,8 @@
   /* Platform Colors */
   --pedidosya: oklch(0.65 0.22 25);
   --foodo: oklch(0.7 0.18 145);
-  --ubereats: oklch(0.7 0.15 145);
+  --delivery: oklch(0.65 0.18 250);
+  --takeaway: oklch(0.7 0.2 80);
 }
 
 .dark {
@@ -81,7 +82,8 @@
   /* Platform Colors */
   --pedidosya: oklch(0.65 0.22 25);
   --foodo: oklch(0.7 0.18 145);
-  --ubereats: oklch(0.7 0.15 145);
+  --delivery: oklch(0.65 0.18 250);
+  --takeaway: oklch(0.7 0.2 80);
 }
 
 @theme inline {
@@ -125,7 +127,8 @@
   --color-sidebar-ring: var(--sidebar-ring);
   --color-pedidosya: var(--pedidosya);
   --color-foodo: var(--foodo);
-  --color-ubereats: var(--ubereats);
+  --color-delivery: var(--delivery);
+  --color-takeaway: var(--takeaway);
 }
 
 @layer base {

@@ -32,7 +32,7 @@ export function OrdersDashboard() {
     setOrders(demoOrders)
   }
 
-  const platforms: Platform[] = ["pedidosya", "foodo", "ubereats"]
+  const platforms: Platform[] = ["pedidosya", "foodo", "delivery", "takeaway"]
 
   const getOrdersByPlatform = (platform: Platform) =>
     orders.filter((order) => order.platform === platform)

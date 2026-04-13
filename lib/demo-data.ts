@@ -78,10 +78,10 @@ export const demoOrders: Order[] = [
     status: "completed",
     createdAt: new Date(Date.now() - 60 * 60 * 1000),
   },
-  // Uber Eats Orders
+  // Delivery Orders (pedidos propios de delivery)
   {
-    id: "UE-001",
-    platform: "ubereats",
+    id: "DL-001",
+    platform: "delivery",
     customerName: "Diego R.",
     items: [
       { name: "Hamburguesa Premium", quantity: 1 },
@@ -94,8 +94,8 @@ export const demoOrders: Order[] = [
     estimatedTime: 35,
   },
   {
-    id: "UE-002",
-    platform: "ubereats",
+    id: "DL-002",
+    platform: "delivery",
     customerName: "Patricia V.",
     items: [
       { name: "Hamburguesa Crispy", quantity: 2, notes: "Extra salsa" },
@@ -107,8 +107,8 @@ export const demoOrders: Order[] = [
     estimatedTime: 22,
   },
   {
-    id: "UE-003",
-    platform: "ubereats",
+    id: "DL-003",
+    platform: "delivery",
     customerName: "Fernando B.",
     items: [
       { name: "Combo Kids", quantity: 2 },
@@ -118,8 +118,8 @@ export const demoOrders: Order[] = [
     createdAt: new Date(Date.now() - 40 * 60 * 1000),
   },
   {
-    id: "UE-004",
-    platform: "ubereats",
+    id: "DL-004",
+    platform: "delivery",
     customerName: "Sofia T.",
     items: [
       { name: "Hamburguesa Bacon", quantity: 1 },
@@ -127,5 +127,56 @@ export const demoOrders: Order[] = [
     total: 2800,
     status: "completed",
     createdAt: new Date(Date.now() - 55 * 60 * 1000),
+  },
+  // Take Away Orders (retiro en local)
+  {
+    id: "TA-001",
+    platform: "takeaway",
+    customerName: "Martín H.",
+    items: [
+      { name: "Hamburguesa Doble Bacon", quantity: 2 },
+      { name: "Papas Fritas", quantity: 2 },
+      { name: "Coca-Cola 500ml", quantity: 2 },
+    ],
+    total: 5800,
+    status: "pending",
+    createdAt: new Date(Date.now() - 8 * 60 * 1000),
+    estimatedTime: 15,
+  },
+  {
+    id: "TA-002",
+    platform: "takeaway",
+    customerName: "Lucía P.",
+    items: [
+      { name: "Hamburguesa Clásica", quantity: 1 },
+      { name: "Aros de Cebolla", quantity: 1, notes: "Extra crocantes" },
+    ],
+    total: 3100,
+    status: "preparing",
+    createdAt: new Date(Date.now() - 12 * 60 * 1000),
+    estimatedTime: 10,
+  },
+  {
+    id: "TA-003",
+    platform: "takeaway",
+    customerName: "Nicolás F.",
+    items: [
+      { name: "Combo Triple", quantity: 1 },
+      { name: "Malteada Frutilla", quantity: 1 },
+    ],
+    total: 4200,
+    status: "ready",
+    createdAt: new Date(Date.now() - 25 * 60 * 1000),
+  },
+  {
+    id: "TA-004",
+    platform: "takeaway",
+    customerName: "Valentina R.",
+    items: [
+      { name: "Hamburguesa Veggie", quantity: 2 },
+    ],
+    total: 4400,
+    status: "completed",
+    createdAt: new Date(Date.now() - 50 * 60 * 1000),
   },
 ]

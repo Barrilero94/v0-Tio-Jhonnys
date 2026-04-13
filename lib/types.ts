@@ -1,4 +1,4 @@
-export type Platform = "pedidosya" | "foodo" | "ubereats"
+export type Platform = "pedidosya" | "foodo" | "delivery" | "takeaway"
 
 export type OrderStatus = "pending" | "preparing" | "ready" | "completed"
 

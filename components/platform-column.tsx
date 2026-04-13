@@ -24,10 +24,15 @@ const platformConfig: Record<
     bgClass: "bg-foodo/10",
     borderClass: "border-foodo",
   },
-  ubereats: {
-    name: "Uber Eats",
-    bgClass: "bg-ubereats/10",
-    borderClass: "border-ubereats",
+  delivery: {
+    name: "Delivery",
+    bgClass: "bg-delivery/10",
+    borderClass: "border-delivery",
+  },
+  takeaway: {
+    name: "Take Away",
+    bgClass: "bg-takeaway/10",
+    borderClass: "border-takeaway",
   },
 }
 

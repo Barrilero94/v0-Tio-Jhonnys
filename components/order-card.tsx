@@ -70,7 +70,8 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
         isCompleted ? "opacity-60" : "hover:ring-2 hover:ring-ring/50",
         order.platform === "pedidosya" && "border-l-pedidosya",
         order.platform === "foodo" && "border-l-foodo",
-        order.platform === "ubereats" && "border-l-ubereats"
+        order.platform === "delivery" && "border-l-delivery",
+        order.platform === "takeaway" && "border-l-takeaway"
       )}
     >
       <CardHeader className="pb-2">
