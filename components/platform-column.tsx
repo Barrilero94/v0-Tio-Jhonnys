@@ -20,7 +20,7 @@ const platformConfig: Record<
     borderClass: "border-pedidosya",
   },
   foodo: {
-    name: "Foodo",
+    name: "Fu.do",
     bgClass: "bg-foodo/10",
     borderClass: "border-foodo",
   },

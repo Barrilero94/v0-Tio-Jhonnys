@@ -7,7 +7,7 @@ export const demoOrders: Order[] = [
     platform: "pedidosya",
     customerName: "Carlos M.",
     items: [
-      { name: "Hamburguesa Clásica", quantity: 2 },
+      { name: "Johnny's Clasica", quantity: 2 },
       { name: "Papas Fritas", quantity: 2 },
       { name: "Coca-Cola 500ml", quantity: 2 },
     ],
@@ -21,7 +21,7 @@ export const demoOrders: Order[] = [
     platform: "pedidosya",
     customerName: "María L.",
     items: [
-      { name: "Hamburguesa Doble Queso", quantity: 1 },
+      { name: "Johnny's Doble Queso", quantity: 1 },
       { name: "Aros de Cebolla", quantity: 1 },
     ],
     total: 3200,
@@ -34,19 +34,19 @@ export const demoOrders: Order[] = [
     platform: "pedidosya",
     customerName: "Roberto S.",
     items: [
-      { name: "Combo Familiar", quantity: 1, notes: "Sin pickles" },
+      { name: "Combo Familiar Johnny's", quantity: 1, notes: "Sin pickles" },
     ],
     total: 8900,
     status: "completed",
     createdAt: new Date(Date.now() - 45 * 60 * 1000),
   },
-  // Foodo Orders
+  // Fu.do Orders
   {
     id: "FD-001",
     platform: "foodo",
     customerName: "Ana G.",
     items: [
-      { name: "Hamburguesa BBQ", quantity: 3 },
+      { name: "Johnny's BBQ", quantity: 3 },
       { name: "Papas Fritas Grandes", quantity: 2 },
       { name: "Sprite 500ml", quantity: 3 },
     ],
@@ -60,7 +60,7 @@ export const demoOrders: Order[] = [
     platform: "foodo",
     customerName: "Juan P.",
     items: [
-      { name: "Hamburguesa Veggie", quantity: 1 },
+      { name: "Johnny's Veggie", quantity: 1 },
       { name: "Ensalada", quantity: 1 },
     ],
     total: 2900,
@@ -72,7 +72,7 @@ export const demoOrders: Order[] = [
     platform: "foodo",
     customerName: "Laura M.",
     items: [
-      { name: "Hamburguesa Triple", quantity: 2 },
+      { name: "Johnny's Triple", quantity: 2 },
     ],
     total: 5400,
     status: "completed",
