@@ -43,6 +43,22 @@ export function OrdersDashboard() {
     setOrders(demoOrders)
   }
 
+  const handleAddOrder = (platform: Platform) => {
+    // In a real app, this would open a modal to create a new order
+    // For now, we'll add a demo order
+    const newOrder: Order = {
+      id: `${platform === "delivery" ? "DL" : "TA"}-${String(Date.now()).slice(-3)}`,
+      platform,
+      customerName: "Nuevo Cliente",
+      items: [{ name: "Johnny's Clasica", quantity: 1 }],
+      total: 2500,
+      status: "pending",
+      createdAt: new Date(),
+      estimatedTime: 20,
+    }
+    setOrders((prev) => [newOrder, ...prev])
+  }
+
   const platforms: Platform[] = ["pedidosya", "foodo", "delivery", "takeaway"]
 
   const getOrdersByPlatform = (platform: Platform) =>
@@ -162,6 +178,7 @@ export function OrdersDashboard() {
             platform={activePlatform}
             orders={getOrdersByPlatform(activePlatform)}
             onStatusChange={handleStatusChange}
+            onAddOrder={() => handleAddOrder(activePlatform)}
           />
         </div>
       </main>
@@ -177,6 +194,7 @@ export function OrdersDashboard() {
               platform={platform}
               orders={getOrdersByPlatform(platform)}
               onStatusChange={handleStatusChange}
+              onAddOrder={() => handleAddOrder(platform)}
             />
           </div>
         ))}

@@ -1,6 +1,8 @@
 "use client"
 
+import { Plus } from "lucide-react"
 import { OrderCard } from "./order-card"
+import { Button } from "@/components/ui/button"
 import type { Order, OrderStatus, Platform } from "@/lib/types"
 import { cn } from "@/lib/utils"
 
@@ -8,6 +10,7 @@ interface PlatformColumnProps {
   platform: Platform
   orders: Order[]
   onStatusChange: (orderId: string, newStatus: OrderStatus) => void
+  onAddOrder?: () => void
 }
 
 const platformConfig: Record<
@@ -40,8 +43,10 @@ export function PlatformColumn({
   platform,
   orders,
   onStatusChange,
+  onAddOrder,
 }: PlatformColumnProps) {
   const config = platformConfig[platform]
+  const canAddOrders = platform === "delivery" || platform === "takeaway"
   
   // Separate active and completed orders
   const activeOrders = orders.filter((o) => o.status !== "completed")
@@ -77,9 +82,31 @@ export function PlatformColumn({
             <span className="rounded-full bg-background px-2 py-0.5 text-xs md:text-sm font-semibold">
               {activeOrders.length} activos
             </span>
+            {canAddOrders && onAddOrder && (
+              <Button
+                size="icon"
+                onClick={onAddOrder}
+                className="h-7 w-7 rounded-full bg-primary hover:bg-primary/90"
+              >
+                <Plus className="h-4 w-4 text-primary-foreground" />
+              </Button>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Mobile Add Button - Floating */}
+      {canAddOrders && onAddOrder && (
+        <div className="md:hidden p-2 border-b border-border">
+          <Button
+            onClick={onAddOrder}
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
+          >
+            <Plus className="h-4 w-4 mr-2" />
+            Agregar Pedido
+          </Button>
+        </div>
+      )}
 
       {/* Orders List */}
       <div className="flex-1 overflow-y-auto p-2 md:p-3 space-y-2 md:space-y-3">
