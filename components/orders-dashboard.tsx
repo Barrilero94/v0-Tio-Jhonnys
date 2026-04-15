@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils"
 
 const platformNames: Record<Platform, string> = {
   pedidosya: "PedidosYa",
-  foodo: "Fu.do",
+  foodo: "Pedix",
   delivery: "Delivery",
   takeaway: "Take Away",
 }
@@ -57,6 +57,12 @@ export function OrdersDashboard() {
       estimatedTime: 20,
     }
     setOrders((prev) => [newOrder, ...prev])
+  }
+
+  const handleRequestDelivery = (orderId: string) => {
+    // In a real app, this would open a modal or call an API to request delivery
+    // For now, just show an alert
+    alert(`Solicitando delivery para pedido #${orderId}`)
   }
 
   const platforms: Platform[] = ["pedidosya", "foodo", "delivery", "takeaway"]
@@ -179,6 +185,7 @@ export function OrdersDashboard() {
             orders={getOrdersByPlatform(activePlatform)}
             onStatusChange={handleStatusChange}
             onAddOrder={() => handleAddOrder(activePlatform)}
+            onRequestDelivery={handleRequestDelivery}
           />
         </div>
       </main>
@@ -195,6 +202,7 @@ export function OrdersDashboard() {
               orders={getOrdersByPlatform(platform)}
               onStatusChange={handleStatusChange}
               onAddOrder={() => handleAddOrder(platform)}
+              onRequestDelivery={handleRequestDelivery}
             />
           </div>
         ))}

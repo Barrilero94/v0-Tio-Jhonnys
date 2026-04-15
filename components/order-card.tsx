@@ -1,6 +1,6 @@
 "use client"
 
-import { Clock, Check, ChefHat, Package, User } from "lucide-react"
+import { Clock, Check, ChefHat, Package, User, Truck } from "lucide-react"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 interface OrderCardProps {
   order: Order
   onStatusChange: (orderId: string, newStatus: OrderStatus) => void
+  onRequestDelivery?: (orderId: string) => void
 }
 
 const statusConfig: Record<
@@ -57,10 +58,9 @@ function getTimeAgo(date: Date): string {
   return `Hace ${hours}h`
 }
 
-export function OrderCard({ order, onStatusChange }: OrderCardProps) {
+export function OrderCard({ order, onStatusChange, onRequestDelivery }: OrderCardProps) {
   const status = statusConfig[order.status]
   const StatusIcon = status.icon
-  const nextStatus = getNextStatus(order.status)
   const isCompleted = order.status === "completed"
 
   return (
@@ -120,16 +120,25 @@ export function OrderCard({ order, onStatusChange }: OrderCardProps) {
               </span>
             )}
           </div>
-          {nextStatus && (
-            <Button
-              size="sm"
-              onClick={() => onStatusChange(order.id, nextStatus)}
-              className="font-medium text-xs md:text-sm h-8 md:h-9 px-3 md:px-4"
-            >
-              {nextStatus === "preparing" && "Preparar"}
-              {nextStatus === "ready" && "Listo"}
-              {nextStatus === "completed" && "Entregar"}
-            </Button>
+          {!isCompleted && (
+            <div className="flex items-center gap-2">
+              <Button
+                size="sm"
+                onClick={() => onRequestDelivery?.(order.id)}
+                className="font-medium text-xs md:text-sm h-8 md:h-9 px-2 md:px-3 bg-amber-500 hover:bg-amber-600 text-black"
+              >
+                <Truck className="h-3.5 w-3.5 mr-1" />
+                <span className="hidden sm:inline">Pedir</span> Delivery
+              </Button>
+              <Button
+                size="sm"
+                onClick={() => onStatusChange(order.id, "completed")}
+                className="font-medium text-xs md:text-sm h-8 md:h-9 px-3 md:px-4 bg-primary hover:bg-primary/90"
+              >
+                <Check className="h-3.5 w-3.5 mr-1" />
+                Listo
+              </Button>
+            </div>
           )}
         </div>
       </CardContent>

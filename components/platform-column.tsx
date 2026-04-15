@@ -11,6 +11,7 @@ interface PlatformColumnProps {
   orders: Order[]
   onStatusChange: (orderId: string, newStatus: OrderStatus) => void
   onAddOrder?: () => void
+  onRequestDelivery?: (orderId: string) => void
 }
 
 const platformConfig: Record<
@@ -23,7 +24,7 @@ const platformConfig: Record<
     borderClass: "border-pedidosya",
   },
   foodo: {
-    name: "Fu.do",
+    name: "Pedix",
     bgClass: "bg-foodo/10",
     borderClass: "border-foodo",
   },
@@ -44,6 +45,7 @@ export function PlatformColumn({
   orders,
   onStatusChange,
   onAddOrder,
+  onRequestDelivery,
 }: PlatformColumnProps) {
   const config = platformConfig[platform]
   const canAddOrders = platform === "delivery" || platform === "takeaway"
@@ -122,6 +124,7 @@ export function PlatformColumn({
                 key={order.id}
                 order={order}
                 onStatusChange={onStatusChange}
+                onRequestDelivery={onRequestDelivery}
               />
             ))}
 
@@ -138,6 +141,7 @@ export function PlatformColumn({
                     key={order.id}
                     order={order}
                     onStatusChange={onStatusChange}
+                    onRequestDelivery={onRequestDelivery}
                   />
                 ))}
               </div>
